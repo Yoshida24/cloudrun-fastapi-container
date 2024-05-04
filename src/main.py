@@ -1,10 +1,8 @@
-from modules.cowsay_demo.greeting import greet_to, greet_from_env
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-def main():
-    # use argument to greet
-    greet_to(your_name="Alan")
-
-
-if __name__ == "__main__":
-    main()
+@app.get("/")
+def read_root():
+    return "Deploy Success!"

@@ -1,8 +1,8 @@
-# preset-python-venv
+# cloudrun-fastapi-container
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Yoshida24/preset-python-venv)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Yoshida24/cloudrun-fastapi-container)
 
-Preset for development on Python using venv.
+This is a demo application that runs FastAPI Server on CloudRun with a container service.
 
 **included:**
 - Lint and Format
@@ -48,11 +48,12 @@ else
 fi
 ```
 
-Now you can run script:
+Now you can run container locally:
+
 
 ```bash
 # load environment variables from .env to your shell.
-set -a && source ./.env && set +a
+make build
 make run
 ```
 
@@ -60,6 +61,27 @@ make run
 >
 > This project *does not* depends on `dotenv-python`. Instead, using below script.
 > `set -a && source ./.env && set +a`
+
+## CloudRun
+
+Deploy:
+
+```bash
+make deploy
+```
+
+> **Note**
+> - If you have already deployed a resource with the same name, the resource will be updated.
+> - The CloudRun URL will not change when the resource is updated!
+
+Cleanup
+
+```bash
+make cleanup
+```
+
+> **Note**
+> - `Do you want to continue (Y/n)?` Enter "y" when asked "Do you want to continue (Y/n)? The resource will be deleted.
 
 ## Jupyter
 
